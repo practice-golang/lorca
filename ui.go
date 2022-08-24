@@ -51,7 +51,6 @@ var defaultChromeArgs = []string{
 	// "--enable-automation",
 	"--password-store=basic",
 	"--use-mock-keychain",
-	"--ash-force-desktop",
 }
 
 // New returns a new HTML5 UI for the given URL, user profile directory, window
