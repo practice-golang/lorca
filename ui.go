@@ -26,7 +26,7 @@ type ui struct {
 	tmpDir string
 }
 
-var DefaultChromeArgs = []string{
+var defaultChromeArgs = []string{
 	"--disable-background-networking",
 	"--disable-background-timer-throttling",
 	"--disable-backgrounding-occluded-windows",
@@ -73,7 +73,7 @@ func New(url, dir string, width, height int, customArgs ...string) (UI, error) {
 		}
 		dir, tmpDir = name, name
 	}
-	args := append(DefaultChromeArgs, fmt.Sprintf("--app=%s", url))
+	args := append(defaultChromeArgs, fmt.Sprintf("--app=%s", url))
 	args = append(args, fmt.Sprintf("--user-data-dir=%s", dir))
 	args = append(args, fmt.Sprintf("--window-size=%d,%d", width, height))
 	args = append(args, customArgs...)
