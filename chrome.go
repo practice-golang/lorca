@@ -6,7 +6,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"os/exec"
 	"regexp"
@@ -523,7 +522,7 @@ func readUntilMatch(r io.ReadCloser, re *regexp.Regexp) ([]string, error) {
 			r.Close()
 			return nil, err
 		} else if m := re.FindStringSubmatch(line); m != nil {
-			go io.Copy(ioutil.Discard, br)
+			go io.Copy(io.Discard, br)
 			return m, nil
 		}
 	}

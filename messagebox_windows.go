@@ -1,4 +1,5 @@
-//+build windows
+//go:build windows
+// +build windows
 
 package lorca
 
@@ -13,7 +14,9 @@ func messageBox(title, text string) bool {
 	mbYesNo := 0x00000004
 	mbIconQuestion := 0x00000020
 	idYes := 6
-	ret, _, _ := messageBoxW.Call(0, uintptr(unsafe.Pointer(syscall.StringToUTF16Ptr(text))),
-		uintptr(unsafe.Pointer(syscall.StringToUTF16Ptr(title))), uintptr(uint(mbYesNo|mbIconQuestion)))
+	textPTR, _ := syscall.UTF16PtrFromString(text)
+	titlePTR, _ := syscall.UTF16PtrFromString(title)
+	ret, _, _ := messageBoxW.Call(0, uintptr(unsafe.Pointer(textPTR)),
+		uintptr(unsafe.Pointer(titlePTR)), uintptr(uint(mbYesNo|mbIconQuestion)))
 	return int(ret) == idYes
 }
