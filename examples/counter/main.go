@@ -11,7 +11,7 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/zserge/lorca"
+	"github.com/practice-golang/lorca"
 )
 
 //go:embed www
