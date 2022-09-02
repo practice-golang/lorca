@@ -1,3 +1,7 @@
+Changed chrome args var to public https://github.com/practice-golang/lorca/blob/a0de4f9d40f3e655fd86abef3b5937fffff557a8/ui.go#L28
+
+----
+
 # Lorca
 
 [![Build Status](https://img.shields.io/github/workflow/status/zserge/lorca/CI%20Pipeline)](https://github.com/zserge/lorca)
